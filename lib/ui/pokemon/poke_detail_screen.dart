@@ -22,7 +22,7 @@ class PokeDetailScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: 300,
+              height: 200,
               width: double.infinity,
               child: Image.network(
                 pokemon.imgUrl,
@@ -30,13 +30,22 @@ class PokeDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
               child: Text(
                 pokemon.type,
+                textAlign: TextAlign.center,
+                softWrap: true,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              width: double.infinity,
+              child: Text(
+                pokemon.type2,
                 textAlign: TextAlign.center,
                 softWrap: true,
               ),

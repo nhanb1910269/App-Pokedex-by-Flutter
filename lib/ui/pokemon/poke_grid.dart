@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/ui/poketeam/poketeam_manager.dart';
+import 'package:provider/provider.dart';
 
 import 'poke_grid_tile.dart';
 import 'poke_manager.dart';
+import '../../models/pokemon.dart';
 
 class PokeGrid extends StatelessWidget {
   final bool showFavorites;
@@ -13,9 +16,8 @@ class PokeGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pokeManager = PokeManager();
-    final pokemon =
-        showFavorites ? pokeManager.favoriteItems : pokeManager.items;
+    final pokemon = context.select<PokeManager, List<Pokemon>>((pokeManager) =>
+        showFavorites ? pokeManager.favoriteItems : pokeManager.items);
     return GridView.builder(
       padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
       itemCount: pokemon.length,

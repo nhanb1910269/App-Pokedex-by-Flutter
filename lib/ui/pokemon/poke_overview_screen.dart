@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/ui/pokemon/top_right_badge.dart';
+import 'package:pokedex/ui/screens.dart';
+import 'package:provider/provider.dart';
 import 'poke_grid.dart';
+import '../shared/app_drawer.dart';
 
 enum FilterOptions { favorites, all }
 
@@ -23,6 +27,7 @@ class _PokeOverviewScreenState extends State<PokeOverviewScreen> {
           buildPokeTeamIcon(),
         ],
       ),
+      drawer: const AppDrawer(),
       body: PokeGrid(_showOnlyFavorites),
     );
   }
@@ -50,11 +55,20 @@ class _PokeOverviewScreenState extends State<PokeOverviewScreen> {
   }
 
   Widget buildPokeTeamIcon() {
-    return IconButton(
-      icon: const Icon(
-        Icons.group_add,
-      ),
-      onPressed: () {},
+    return Consumer<poketeamManager>(
+      builder: (ctx, cartManager, child) {
+        return TopRightBadge(
+          data: cartManager.pokeCount,
+          child: IconButton(
+            icon: const Icon(
+              Icons.group_add,
+            ),
+            onPressed: () {
+              Navigator.of(ctx).pushNamed(PoketeamScreen.routeName);
+            },
+          ),
+        );
+      },
     );
   }
 }

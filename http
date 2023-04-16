@@ -1,0 +1,14 @@
+POST https://pokedex-project-e532e-default-rtdb.asia-southeast1.firebasedatabase.app/products.json?
+Content-Type: application/json
+
+{
+    "id": "1",
+    "name": "bulbasaur",
+    "type": "grass",
+    "type2": "poison",
+    "imgUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'",
+    "isFavorite": "false",
+}
+
+###
+GET https://pokedex-project-e532e-default-rtdb.asia-southeast1.firebasedatabase.app//products.json

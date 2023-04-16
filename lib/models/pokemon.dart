@@ -16,6 +16,7 @@ class Pokemon {
     required this.type2,
     isFavorite = false,
   }) : _isFavorite = ValueNotifier(isFavorite);
+
   set isFavorite(bool newValue) {
     _isFavorite.value = newValue;
   }

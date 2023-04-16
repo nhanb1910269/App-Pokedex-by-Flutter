@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../screens.dart';
+import '../shared/app_drawer.dart';
 import 'user_poke_list_tile.dart';
 import 'poke_manager.dart';
 
@@ -17,6 +19,7 @@ class UserPokeScreen extends StatelessWidget {
           buildAddButton(context),
         ],
       ),
+      drawer: const AppDrawer(),
       body: RefreshIndicator(
           onRefresh: () async => print('something'),
           child: buildUserPokeListView(pokeManager)),
@@ -24,23 +27,31 @@ class UserPokeScreen extends StatelessWidget {
   }
 
   Widget buildUserPokeListView(PokeManager pokeManager) {
-    return ListView.builder(
-      itemCount: pokeManager.itemCount,
-      itemBuilder: (ctx, i) => Column(
-        children: [
-          UserPokeListTile(
-            pokeManager.items[i],
+    return Consumer<PokeManager>(
+      builder: (ctx, pokeManager, child) {
+        return ListView.builder(
+          itemCount: pokeManager.itemCount,
+          itemBuilder: (ctx, i) => Column(
+            children: [
+              UserPokeListTile(
+                pokeManager.items[i],
+              ),
+              const Divider(),
+            ],
           ),
-          const Divider(),
-        ],
-      ),
+        );
+      },
     );
   }
 
   Widget buildAddButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.add),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed(
+          EditPokeScreen.routeName,
+        );
+      },
     );
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:pokedex/models/pokemon.dart';
+import 'package:pokedex/ui/pokemon/poke_manager.dart';
+import 'package:provider/provider.dart';
+
+import '../screens.dart';
 
 class UserPokeListTile extends StatelessWidget {
   final Pokemon pokemon;
@@ -29,7 +32,19 @@ class UserPokeListTile extends StatelessWidget {
   Widget buildDeleteButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.delete),
-      onPressed: () {},
+      onPressed: () {
+        context.read<PokeManager>().deletePokemon(pokemon.id!);
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Pokemon removed',
+                textAlign: TextAlign.center,
+              ),
+            ),
+          );
+      },
       color: Theme.of(context).colorScheme.error,
     );
   }
@@ -37,7 +52,12 @@ class UserPokeListTile extends StatelessWidget {
   Widget buildEditButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.edit),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed(
+          EditPokeScreen.routeName,
+          arguments: pokemon.id,
+        );
+      },
       color: Theme.of(context).primaryColor,
     );
   }
