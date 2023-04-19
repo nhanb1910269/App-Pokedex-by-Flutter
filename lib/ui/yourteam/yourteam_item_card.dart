@@ -69,3 +69,8 @@ class _YourteamItemCardState extends State<YourteamItemCard> {
     );
   }
 }
+
+/*
+Widget YourteamItemCard sử dụng thư viện intl để định dạng ngày tháng, khai báo thư viện trong
+pubspec.yaml (chọn phiên bản mới nhất):
+*/

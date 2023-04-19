@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:pokedex/models/pokemon.dart';
 import '../../models/poke_team.dart';
 
 class poketeamManager with ChangeNotifier {

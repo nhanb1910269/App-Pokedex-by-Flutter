@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                 builder: (ctx) {
                   return PokeDetailScreen(
-                    ctx.read<PokeManager>().findById(pokemonId)!,
+                    ctx.read<PokeManager>().findById(pokemonId),
                   );
                 },
               );

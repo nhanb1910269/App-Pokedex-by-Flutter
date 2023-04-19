@@ -61,3 +61,18 @@ class PoketeamPokeCard extends StatelessWidget {
     );
   }
 }
+
+/*
+Widget Dismissible là widget có thể được loại bỏ (dismiss)
+ bằng cách vuốt theo hướng chỉ định.
+Một số thuộc tính quan trọng của Dismissable: key thuộc tính đùng định danh
+ widget; direction chỉ định hướng vuốt widget (DismissDirection);
+  background widget nền cho widget con; confirmDismiss
+hàm được gọi để xác nhận loại bỏ, trả về true widget sẽ được loại bỏ,
+ ngược lại quay về vị trí cũ;
+onDismissed hàm được gọi sau khi widget đã được loại bỏ.
+
+
+Widget FittedBox co giãn và bố trí con của nó theo tiêu chí 
+được chỉ định bởi thuộc tính fit (mặc định là BoxFit.contain).
+*/

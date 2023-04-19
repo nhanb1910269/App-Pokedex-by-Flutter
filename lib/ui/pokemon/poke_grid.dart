@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/ui/poketeam/poketeam_manager.dart';
 import 'package:provider/provider.dart';
 
 import 'poke_grid_tile.dart';

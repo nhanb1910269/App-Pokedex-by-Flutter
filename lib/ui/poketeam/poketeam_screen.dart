@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/ui/pokemon/poke_manager.dart';
 import 'package:pokedex/ui/yourteam/yourteam_manager.dart';
 import 'package:provider/provider.dart';
-//import 'package:provider/provider.dart';
 
 import 'poketeam_manager.dart';
 import 'poketeam_poke_card.dart';

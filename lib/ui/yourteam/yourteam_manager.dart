@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pokedex/models/poke_team.dart';
 import 'package:pokedex/models/your_team.dart';
-import '../../models/poke_team.dart';
-import '../../models/your_team.dart';
 
 class YourteamsManager with ChangeNotifier {
   final List<YourTeamItem> _yourteams = [

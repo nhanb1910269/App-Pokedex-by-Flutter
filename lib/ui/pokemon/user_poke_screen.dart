@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import '../screens.dart';
 import '../shared/app_drawer.dart';
 import 'user_poke_list_tile.dart';
-import 'poke_manager.dart';
 
 class UserPokeScreen extends StatelessWidget {
   static const routeName = '/user-poke';

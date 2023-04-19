@@ -56,7 +56,7 @@ class PokeGridTile extends StatelessWidget {
                     action: SnackBarAction(
                       label: 'UNDO',
                       onPressed: () {
-                        poketeam.removeSinglePoke(pokemon.id!);
+                        poketeam.removeSinglePoke(pokemon.id);
                       },
                     ),
                   ),
